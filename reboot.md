@@ -1,5 +1,5 @@
 # Reboot————凤凰涅槃，运维工程师的浴火重生
-  
+
 今天是2015年12月21号，三年前的今天，是玛雅人预言的世界末日，也许世界末日我们是无法亲眼见到了，但运维工程师的世界末日，已经来到。
 
 尽管运维开发已经是被炒了很久的概念，但大部分运维工程师，还处于机房上架，系统装机，环境部署，处理监控报警，配合开发人员的工作等技术含量不高，但是重复劳动较多的工作状态。但是，随着aws，阿里云等各个云供应商的出现，大部分小公司和绝大部分创业公司，都不会自己购买服务器了，本人和一些中小公司里面的朋友了解过，现在大部分工作内容，就是监控、上线。可以预想到的未来，原始运维人员即使不被程序替代，也只剩下点点鼠标，而这样的工作，显然是拿不到高的薪酬。
@@ -12,7 +12,7 @@
 更重要的是PC老师在课程中穿插的各种原理，例如TCP/IP协议，分布式系统架构，CAP原理，分布式一致性算法Paxos，linux底层接口调用等等，用PC老师的话，这些东西，是十年之内都有用的。
 
 下面是我们完成的项目架构图：
-![arch](http://51reboot.com/static/course/arch/arch.jpg)
+![arch](http://upload-images.jianshu.io/upload_images/1362367-140b7bc66ece754f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 这套系统的核心是我们使用python实现了memcache原型状态机的异步网络框架，通过状态机结合epoll，分分钟秒杀现有python开源框架。下面是笔者的测试，单线程可以达到3W+QPS，
 测试程序：
@@ -27,16 +27,15 @@
 
 每10W个请求print下时间：
 
-![alt tag](https://github.com/AlphaSRE/image/blob/master/1.png)
+![qps1](http://upload-images.jianshu.io/upload_images/1362367-9f1282f3af67222a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![qps2](file://C:\Users\shuyiguo\Desktop\github\image\2.png)
+![qps2](http://upload-images.jianshu.io/upload_images/1362367-6f07255268acc9de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-班里有个阿里系的陶大神，使用逆天的pypy，达到了50W+QPS
+班里有个阿里系的某大神同学，使用逆天的pypy，达到了50W+QPS：
 
-![qps3](file://C:\Users\shuyiguo\Desktop\github\image\6.png)
-![qps4](file://C:\Users\shuyiguo\Desktop\github\image\3.png)
-![qps5](file://C:\Users\shuyiguo\Desktop\github\image\4.png)
-
+![qps3](http://upload-images.jianshu.io/upload_images/1362367-28e586cd21722dfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![qps4](http://upload-images.jianshu.io/upload_images/1362367-c598a191e3c28c95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![qps5](http://upload-images.jianshu.io/upload_images/1362367-0a17dc9505faee2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 虽然只是测试，处理逻辑稍显简单，但依然很强大，单台监控数万服务器，性能绝对不成问题，源码已经在github开源：
 
@@ -45,6 +44,3 @@
 源码包括了整个的架构代码，和前端的展示。
 
 这套系统，我们后期完善了下远程rpc命令执行调用的异步处理，所以也可以作为批量任务执行系统，网络框架和逻辑几乎完全剥离，因此可以作为通用的C/S框架，只需写logic代码。
-
-
-
